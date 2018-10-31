@@ -8,11 +8,11 @@ if (process.argv.length <= 2)
 const specsFile = process.argv[2];
 fs.readFile(specsFile, (err, data) => {
   const jsonFile = JSON.parse(data);
-  Object.keys(jsonFile.paths).forEach(pathName => {
-    if (
-      Object.prototype.hasOwnProperty.call(jsonFile.paths[pathName], 'post')
-    ) {
-      const operation = jsonFile.paths[pathName].post;
+  Object.getOwnPropertyNames(jsonFile.paths).forEach(pathName => {
+    const operations = jsonFile.paths[pathName];
+    Object.getOwnPropertyNames(operations).forEach(methodName => {
+      const operation = operations[methodName];
+      console.log(operation);
       if (Object.prototype.hasOwnProperty.call(operation, 'parameters')) {
         operation.parameters.forEach(param => {
           if (param.in === 'body') {
@@ -20,12 +20,14 @@ fs.readFile(specsFile, (err, data) => {
           }
         });
       }
-    }
+    });
   });
   fs.writeFile(specsFile, JSON.stringify(jsonFile, null, 2), 'utf-8', err => {
     if (err) {
       throw new Error(err);
     }
-    console.log('The file was saved!');
+    console.log(
+      'The API specification file was successfully converted and saved!'
+    );
   });
 });
