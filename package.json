@@ -10,5 +10,8 @@
     "azure-api-spec-converter": "./index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.19.0"
+  }
 }
