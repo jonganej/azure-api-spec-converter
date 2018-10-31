@@ -9,7 +9,18 @@
   "bin": {
     "azure-api-spec-converter": "./index.js"
   },
-  "author": "",
+  "contributors": [
+    {
+      "name": "Jonathan Gan",
+      "email": "jonganej@gmail.com",
+      "url": "https://github.com/jonganej"
+    },
+    {
+      "name": "Daniel Strebel",
+      "email": "",
+      "url": ""
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "commander": "^2.19.0"
