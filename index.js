@@ -10,9 +10,10 @@ program
   )
   .command(
     '<file>',
-    'Convert given file to Azure-compliant Swagger specification.'
+    'Convert given file to Azure-compliant Swagger specification and overwrite this file.'
   )
-  .action(file => {
+  .option('-o, --output [outputFile]', 'Write to a specific output file.')
+  .action((file, options) => {
     fs.readFile(file, (err, data) => {
       const jsonFile = JSON.parse(data);
       Object.getOwnPropertyNames(jsonFile.paths).forEach(pathName => {
@@ -28,14 +29,20 @@ program
           }
         });
       });
-      fs.writeFile(file, JSON.stringify(jsonFile, null, 2), 'utf-8', err => {
-        if (err) {
-          throw new Error(err);
+      const outputFile = options.output || file;
+      fs.writeFile(
+        outputFile,
+        JSON.stringify(jsonFile, null, 2),
+        'utf-8',
+        err => {
+          if (err) {
+            throw new Error(err);
+          }
+          console.log(
+            'The API specification file was successfully converted and saved!'
+          );
         }
-        console.log(
-          'The API specification file was successfully converted and saved!'
-        );
-      });
+      );
     });
   });
 
