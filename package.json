@@ -1,6 +1,6 @@
 {
   "name": "azure-api-spec-converter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts a general Swagger 2.0 API Specification to an Azure-compliant API specification",
   "main": "index.js",
   "scripts": {
