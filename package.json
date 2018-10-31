@@ -9,6 +9,15 @@
   "bin": {
     "azure-api-spec-converter": "./index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonganej/azure-api-spec-converter.git"
+  },
+  "keywords": [
+    "api",
+    "swagger",
+    "azure"
+  ],
   "contributors": [
     {
       "name": "Jonathan Gan",
