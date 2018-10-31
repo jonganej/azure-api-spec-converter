@@ -6,4 +6,4 @@ Due to a [restriction](https://docs.microsoft.com/en-us/azure/api-management/api
 
 ## Usage
 
-`azure-api-spec-converter /path/to/json/file`
+`azure-api-spec-converter [--output /path/to/output_file] /path/to/input/json`
